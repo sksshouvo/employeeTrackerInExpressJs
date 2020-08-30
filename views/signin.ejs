@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/template/header')%>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <!-- <h1 class="logo mr-auto"><a href="index.html">Arsha</a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="/" class="logo mr-auto"><img src="/images/it_corner.png" alt="" class="img-fluid"></a>
+
+    <%- include('partials/template/navbar')%>
+
+      <a href="#about" class="get-started-btn scrollto">Get Started</a>
+
+    </div>
+  </header><!-- End Header -->
+  
+  <section class="inner-page signup-body"  style="padding: 85px;">
+    <div class="container">
+      <div class="row " >
+        <% if(logged_in == true){%>
+          <div class="col-sm-12">
+            <div class="alert alert-success">
+              Logged in Successfully
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+          </div>
+          
+          <% } else if(logged_in == false){ %>
+            <div class="col-sm-12">
+              <div class="alert alert-danger">
+               Email or Password is wrong
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              
+            </div>
+            <% }%>
+
+        <div class="col-lg-4 mt-5 mt-lg-0 d-flex align-items-stretch"></div>
+        <div class="col-lg-4 mt-5 mt-lg-0 d-flex align-items-stretch sign-form">
+          
+          <form action="/signin" method="post">
+            <h1 class="header-sign">Log In</h1>
+            <div class="form-row">
+              
+              <div class="form-group col-md-12">
+                <label for="name">Email</label>
+                <input type="email" class="form-control" id="email" name="email"  data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group col-md-12">
+                <label for="name">Password</label>
+                <input type="password" class="form-control" id="password" name="password"  data-rule="email" data-msg="Please enter a valid password" />
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-group col-md-12">
+              
+              <input id="agree_terms" required="" type="checkbox"> <label for="agree_terms">Remember me</label>
+          </div>
+          
+            <div class="form-group col-md-12">
+              <button  class="btn btn-primary sign-btn" type="submit">Log In</button>
+            </div>
+            <div class="form-group col-md-12" >
+               <a href="#"><p style="font-size: small;text-align: center;">Recover forgotten password</p></a>
+            </div>
+            <div class="form-group col-md-12" >
+               <h3 class="sigin-h3" style="font-size: unset;text-align: center; color: red;">Don't have an account?</h3>
+            </div>
+            <div class="form-group col-md-12" style="font-size: small; text-align: center;" >
+              <a  href="#">Sign Up</a>  <span>to get started!</span>
+           </div>
+        
+          </form>
+        </div>
+
+        
+      </div>
+    </div>
+</section>
+
+  <%- include('partials/template/footer') %>
+
+</body>
+
+</html>
